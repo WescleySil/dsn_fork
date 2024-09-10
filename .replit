@@ -1,0 +1,12 @@
+modules = ["web", "nodejs-22"]
+run = "npm install -g live-server && live-server --no-browser"
+
+[nix]
+channel = "stable-24_05"
+
+[deployment]
+run = ["sh", "-c", "npm install -g live-server"]
+
+[[ports]]
+localPort = 8080
+externalPort = 80
