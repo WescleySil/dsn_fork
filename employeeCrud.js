@@ -8,7 +8,6 @@ async function fetchData() {
         const apiEndpoint = 'https://api-cyber-market-js.onrender.com/api/employees';
         const response = await fetch(apiEndpoint);
         const data = await response.json(); // Assuming API returns JSON data
-        console.log(data)
         // Access the array within the `data` property
         const employees = data.data; // Now `customers` is an array
       
@@ -23,6 +22,7 @@ async function fetchData() {
                 <td>${employee.name}</td>
                 <td>${employee.cpf}</td>
                 <td>${employee.address}</td>
+                <td>${employee.phone} </td>
                 <td>
                     <button type="button" class="button green" data-id="${employee.id}" onclick="editFunction(${employee.id})">editar</button>
                     <button type="button" class="button red" data-id="${employee.id}" onclick="deleteCustomer(${employee.id})">excluir</button>
@@ -42,8 +42,6 @@ async function editFunction(employeeId) {
         const apiEndpoint = `https://api-cyber-market-js.onrender.com/api/employees/${employeeId}`;
         const response = await fetch(apiEndpoint);
         const employeeData = await response.json(); 
-        console.log(employeeData.data)
-
         // 2. Populate the modal form with the customer data
         // Check if the elements exist before setting their values
         if (modalForm.querySelector('input[placeholder="Nome do funcionario"]')) {
@@ -113,12 +111,9 @@ async function deleteCustomer(employeeId) {
         const apiEndpoint = `https://api-cyber-market-js.onrender.com/api/employees/${employeeId}`;
         const response = await fetch(apiEndpoint, { method: 'DELETE' });
 
-        // 2. Handle the response from the API
         if (response.ok) {
-            // Successful deletion
-            // location.reload(); // Refresh the page
             alert("Funcionário deletado com sucesso!");
-            fetchData(); // Refresh the table
+            fetchData(); 
         } else {
             // Handle the error (e.g., display an error message)
             console.error('Error deleting customer:', response.status);
@@ -162,9 +157,6 @@ async function createNewEmployee() {
     const cpf = modalForm.querySelector('input[placeholder="CPF do funcionario"]').value;
     const address = modalForm.querySelector('input[placeholder="Endereço do funcionario"]').value;
     const phone = modalForm.querySelector('input[placeholder="Celular do funcionario"]').value;
-
-
-    console.log(name); // Verifique se os dados são recuperados corretamente
 
     // 3. Criar o objeto com os dados do novo funcionário
     const newEmployeeData = { name, cpf, address, phone };

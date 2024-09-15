@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CRUD.css">
     <script src="main.js" defer></script>
+    <script src="supplierCrud.js" defer></script>
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
 
     <title>CRUD</title>
@@ -30,55 +31,29 @@
             <thead class="button-texto">
                 <tr>
                     <th>Nome</th>
-                    <th>E-mail</th>
+                    <th>Email</th>
                     <th>Celular</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody class="dados">
-                <tr>
-                    <td>Maria</td>
-                    <td>maria@gmail.com</td>
-                    <td>(11) 97165-1111</td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>João Pedro</td>
-                    <td>joao@gmail.com</td>
-                    <td>(11) 97165-2222</td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jose da Silva</td>
-                    <td>jose@gmail.com</td>
-                    <td>(11) 97165-3333</td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
         <div class="modal" id="modal">
             <div class="modal-content">
                 <header class="modal-header">
-                    <h2>Novo Cliente</h2>
+                    <h2>Novo Fornecedor</h2>
                     <span class="modal-close" id="modalClose">&#10006;</span>
                 </header>
                 <form class="modal-form">
-                    <input type="text" class="modal-field" placeholder="Nome do Cliente">
-                    <input type="email" class="modal-field" placeholder="e-mail do Cliente">
-                    <input type="text" class="modal-field" placeholder="Celular do Cliente">
-                    <input type="text" class="modal-field" placeholder="Cidade do Cliente">
+                    <input type="text" class="modal-field" placeholder="Nome do fornecedor">
+                    <input type="email" class="modal-field" placeholder="email do fornecedor">
+                    <input type="text" class="modal-field" placeholder="telefone do fornecedor">
                 </form>
                 <footer class="modal-footer">
-                    <button class="button green">Salvar</button>
-                    <button class="button red">Cancelar</button>
+                    <button class="button green" onclick="createNewSupplier()">Salvar</button>
+                    <button class="button red" onclick="closeModal()">Cancelar</button>
                 </footer>
             </div>
         </div>
