@@ -7,7 +7,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,200;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CRUD.css">
-    <script src="customerCrud.js" defer></script>
+    <script src="./api/customerCrud.js" defer></script>
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <title>CRUD</title>
 </head>
 <body class="body">
@@ -23,7 +24,7 @@
         </nav>
     </header>
     <main class="records">
-        <button type="button" class="button blue mobile" id="cadastrarCliente">Cadastrar Cliente</button>
+        <button type="button" class="button blue mobile" id="cadastrarCliente" onclick="openNewCustomerModal()">Cadastrar Cliente</button>
         <table class="records">
             <thead class="button-texto">
                 <tr>
@@ -44,12 +45,12 @@
                 </header>
                 <form class="modal-form">
                     <input type="text" class="modal-field" placeholder="Nome do Cliente">
-                    <input type="email" class="modal-field" placeholder="e-mail do Cliente">
-                    <input type="text" class="modal-field" placeholder="Celular do Cliente">
+                    <input type="number" class="modal-field" placeholder="CPF do Cliente">
+                    <input type="text" class="modal-field" placeholder="Endereço do Cliente">
                 </form>
                 <footer class="modal-footer">
-                    <button class="button green">Salvar</button>
-                    <button class="button red">Cancelar</button>
+                    <button class="button green" onclick="createNewCustomer()">Salvar</button>
+                    <button class="button red" onclick="closeModal()">Cancelar</button>
                 </footer>
             </div>
         </div>
