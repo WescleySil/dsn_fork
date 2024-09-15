@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CRUD.css">
     <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
     <script src="main.js" defer></script>
+    <script src="nonOrganicCrud.js" defer></script>
     <title>CRUD</title>
 </head>
 <body class="body">
@@ -24,60 +25,34 @@
         </nav>
     </header>
     <main class="records">
-        <button type="button" class="button blue mobile" id="cadastrarCliente">Adicionar Produto Inorgânico</button>
+        <button type="button" class="button blue mobile" id="cadastrarCliente" onclick="openNewNonOrganicModal()">Adicionar Produto Inorgânico</button>
         <table class="records">
             <thead class="button-texto">
                 <tr>
                     <th>Nome</th>
                     <th>Código de Barras</th>
                     <th>Validade</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody class="dados">
-                <tr>
-                    <td>Maria</td>
-                    <td>maria@gmail.com</td>
-                    <td>(11) 97165-1111</td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>João Pedro</td>
-                    <td>joao@gmail.com</td>
-                    <td>(11) 97165-2222</td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Jose da Silva</td>
-                    <td>jose@gmail.com</td>
-                    <td>(11) 97165-3333</td>
-                    <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
-                    </td>
-                </tr>
+                
             </tbody>
         </table>
         <div class="modal" id="modal">
             <div class="modal-content">
                 <header class="modal-header">
-                    <h2>Novo Cliente</h2>
+                    <h2>Novo Inorganico</h2>
                     <span class="modal-close" id="modalClose">&#10006;</span>
                 </header>
                 <form class="modal-form">
-                    <input type="text" class="modal-field" placeholder="Nome do Cliente">
-                    <input type="email" class="modal-field" placeholder="e-mail do Cliente">
-                    <input type="text" class="modal-field" placeholder="Celular do Cliente">
-                    <input type="text" class="modal-field" placeholder="Cidade do Cliente">
+                    <input type="text" class="modal-field" placeholder="Nome do inorganico">
+                    <input type="email" class="modal-field" placeholder="Codigo de barras">
+                    <input type="date" class="modal-field" placeholder="Data de validade">
                 </form>
                 <footer class="modal-footer">
-                    <button class="button green">Salvar</button>
-                    <button class="button red">Cancelar</button>
+                    <button class="button green" onclick="createNewNonOrganic()">Salvar</button>
+                    <button class="button red" onclick="closeModal()">Cancelar</button>
                 </footer>
             </div>
         </div>
